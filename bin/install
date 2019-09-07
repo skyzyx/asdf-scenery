@@ -57,7 +57,7 @@ get_platform() {
 }
 
 get_filename() {
-  #local version="$1"
+  local version="$1"
   local platform="$2"
   local binary_name="$3"
 
