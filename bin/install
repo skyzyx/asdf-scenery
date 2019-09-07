@@ -61,7 +61,7 @@ get_filename() {
   local platform="$2"
   local binary_name="$3"
 
-  echo "${binary_name}-${platform}"
+  echo "${binary_name}-${version}-${platform}"
 }
 
 # https://github.com/dmlittle/scenery/releases/download/v0.1.5/scenery-v0.1.5-darwin-amd64
