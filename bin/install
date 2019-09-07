@@ -30,7 +30,7 @@ install_tool() {
   download_path="$tmp_download_dir/"$(get_filename "$version" "$platform" "$binary_name")
 
   echo "Downloading [${binary_name}] from ${download_url} to ${download_path}"
-  curl -Lo "$download_path" "$download_url"
+  curl -sSL -o "$download_path" "$download_url"
 
   echo "Creating bin directory"
   mkdir -p "${bin_install_path}"
@@ -64,7 +64,7 @@ get_filename() {
   echo "${binary_name}-${platform}"
 }
 
-# https://github.com/dmlittle/scenery/releases/download/v1.17.1/scenery-v0.1.5-darwin-amd64
+# https://github.com/dmlittle/scenery/releases/download/v0.1.5/scenery-v0.1.5-darwin-amd64
 
 get_download_url() {
   local version="$1"
@@ -78,4 +78,4 @@ get_download_url() {
 
 tmp_download_dir="$(mktemp -d -t 'asdf_XXXXXXXX')"
 trap 'rm -rf "${tmp_download_dir}"' EXIT
-install_tool "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH" "$tmp_download_dir" hadolint
+install_tool "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH" "$tmp_download_dir" scenery
