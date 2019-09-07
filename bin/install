@@ -49,7 +49,7 @@ get_binary_path_in_archive() {
   local version=$3
   local platform=$4
 
-  echo "${archive_dir}/${binary_name}-${platform}"
+  echo "${archive_dir}/${binary_name}-${version}-${platform}"
 }
 
 get_platform() {
